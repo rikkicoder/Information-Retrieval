@@ -1,7 +1,9 @@
 system,family,configuration,map,ndcg,ndcg_cut_10,P_5,P_10,recall_100,recip_rank,index_time_s,search_time_s,ms_per_query
-Terrier TF_IDF,final/held-out,"stem, stop, title x2",0.2599,0.4848,0.3098,0.2453,0.2107,0.7469,0.4605,0.566,0.575,7.66
-Terrier TF_IDF,final/all-topics,"stem, stop, title x2",0.2636,0.4883,0.3123,0.2462,0.2018,0.7443,0.4591,0.566,1.759,7.82
-SmartVSM Lnc.ltc,final/held-out,"stem, stop, title x2",0.3258,0.5331,0.3776,0.3467,0.2493,0.783,0.5152,0.286,0.066,0.88
-SmartVSM Lnc.ltc,final/all-topics,"stem, stop, title x2",0.3187,0.5316,0.3722,0.3316,0.2409,0.7575,0.536,0.286,0.21,0.93
-"SmartVSM + Rocchio(a=1.0,b=0.75,g=0.0,k=8,m=30)",final/held-out,"stem, stop, title x2",0.3514,0.5628,0.4071,0.3653,0.264,0.821,0.5658,0.286,0.184,2.46
-"SmartVSM + Rocchio(a=1.0,b=0.75,g=0.0,k=8,m=30)",final/all-topics,"stem, stop, title x2",0.3431,0.5537,0.3946,0.3449,0.2578,0.7948,0.5583,0.286,0.524,2.33
+Terrier TF_IDF,final/held-out,"stem, stop, title x3",0.2721,0.4929,0.3167,0.2693,0.2147,0.7534,0.4605,0.541,0.534,7.12
+Terrier TF_IDF,final/all-topics,"stem, stop, title x3",0.2731,0.495,0.3211,0.2631,0.2098,0.7509,0.4619,0.541,1.681,7.47
+SmartVSM lnu.ltu,final/held-out,"stem, stop, title x3",0.3395,0.5468,0.3895,0.3467,0.252,0.7869,0.5695,0.283,0.07,0.94
+SmartVSM lnu.ltu,final/all-topics,"stem, stop, title x3",0.3257,0.5399,0.3885,0.3253,0.2462,0.7495,0.5702,0.283,0.198,0.88
+"SmartVSM + Rocchio(a=1.0,b=0.5,g=0.0,k=5,m=15)",final/held-out,"stem, stop, title x3",0.3554,0.5595,0.3976,0.3547,0.2613,0.7947,0.5694,0.283,0.129,1.72
+"SmartVSM + Rocchio(a=1.0,b=0.5,g=0.0,k=5,m=15)",final/all-topics,"stem, stop, title x3",0.3432,0.5571,0.4018,0.3422,0.2578,0.7655,0.5764,0.283,0.394,1.75
+"SmartVSM lnc.ltc(s=0.2) + Rocchio(a=1.0,b=0.75,g=0.0,k=8,m=30)",final/held-out,"stem, stop, title x3",0.3488,0.5582,0.4002,0.3573,0.2613,0.8166,0.5637,0.336,0.166,2.21
+"SmartVSM lnc.ltc(s=0.2) + Rocchio(a=1.0,b=0.75,g=0.0,k=8,m=30)",final/all-topics,"stem, stop, title x3",0.3453,0.5556,0.3966,0.3404,0.2578,0.7887,0.5628,0.336,0.511,2.27
