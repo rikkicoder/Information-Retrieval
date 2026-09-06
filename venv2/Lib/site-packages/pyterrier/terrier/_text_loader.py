@@ -1,0 +1,93 @@
+from typing import List, Union, Literal
+
+import pandas as pd
+import pyterrier as pt
+from pyterrier.terrier._index import TerrierIndex
+
+
+class TerrierTextLoader(pt.Transformer):
+    """A transformer that loads textual metadata from a Terrier index into a DataFrame by docid or docno."""
+    schematic = {'label': 'TextLoader'}
+    def __init__(
+        self,
+        index: TerrierIndex,
+        fields: Union[List[str], str, Literal['*']] = '*',
+        *,
+        verbose=False
+    ):
+        """Initialise the transformer with the index to load metadata from.
+
+        Args:
+            index (pyterrier.terrier.J.Index): The index to load metadata from.
+            fields: The fields to load from the index. If '*', all fields will be loaded.
+            verbose: Whether to print debug information.
+        """
+        metaindex = index.index_obj().getMetaIndex()
+
+        if metaindex is None:
+            raise ValueError(f"Index {index} does not have a metaindex")
+
+        available_fields = list(metaindex.getKeys())
+        if fields == '*':
+            fields = available_fields
+        else:
+            if isinstance(fields, str):
+                fields = [fields]
+            missing_fields = set(fields) - set(available_fields)
+            if missing_fields:
+                raise ValueError(f"Index from {index} did not have requested metaindex keys {list(missing_fields)}. "
+                                 f"Keys present in metaindex are {available_fields}")
+        self._index = index
+        self.fields = fields
+        self.verbose = verbose
+
+    def transform(self, inp: pd.DataFrame) -> pd.DataFrame:
+        """Load metadata from the index into the input DataFrame.
+
+        Args:
+            inp: The input DataFrame. Must contain either 'docid' or 'docno'.
+
+        Returns:
+            A new DataFrame with the metadata columns appended.
+        """
+        if 'docno' not in inp.columns and 'docid' not in inp.columns:
+            raise ValueError(f"Neither docid nor docno are in the input dataframe, found {list(inp.columns)}")
+
+        metaindex = self._index.index_obj().getMetaIndex()
+
+        # Get the docids
+        if "docid" not in inp.columns:
+            # Look up docids by docno
+            docids = inp.docno.map(lambda docno: metaindex.getDocument("docno", docno))
+        else:
+            # Use the provided docids
+            docids = inp.docid
+
+        # Look up the metadata and build a new frame to append
+        docids = docids.values.tolist() # getItems expects a list
+        metadata_matrix = metaindex.getItems(self.fields, docids) # indexed by docid then keys
+        metadata_frame = pd.DataFrame(metadata_matrix, columns=self.fields)
+
+        # append the input and metadata frames
+        inp = inp.drop(columns=self.fields, errors='ignore') # make sure we don't end up with duplicates
+        inp = inp.reset_index(drop=True) # reset the index to default (matching metadata_frame)
+        return pd.concat([inp, metadata_frame], axis='columns')
+
+    def fuse_rank_cutoff(self, k):
+        return pt.RankCutoff(k) >> self
+
+def terrier_text_loader(
+    index,
+    fields: Union[List[str], str, Literal['*']] = '*',
+    *,
+    verbose=False
+) -> TerrierTextLoader:
+    """Create a transformer that loads textual metadata from a Terrier index into a DataFrame by docid or docno.
+
+    Args:
+        index (str or pyterrier.terrier.J.IndexRef or pyterrier.terrier.J.Index): The index to load metadata from.
+        fields: The fields to load from the index. If '*', all fields will be loaded.
+        verbose: Whether to print debug information.
+    """
+    index = pt.terrier.TerrierIndex.coerce(index)
+    return TerrierTextLoader(index, fields, verbose=verbose)

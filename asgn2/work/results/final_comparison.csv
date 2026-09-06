@@ -1,0 +1,7 @@
+system,family,configuration,map,ndcg,ndcg_cut_10,P_5,P_10,recall_100,recip_rank,index_time_s,search_time_s,ms_per_query
+Terrier TF_IDF,final/held-out,"stem, stop, title x2",0.2599,0.4848,0.3098,0.2453,0.2107,0.7469,0.4605,0.566,0.575,7.66
+Terrier TF_IDF,final/all-topics,"stem, stop, title x2",0.2636,0.4883,0.3123,0.2462,0.2018,0.7443,0.4591,0.566,1.759,7.82
+SmartVSM Lnc.ltc,final/held-out,"stem, stop, title x2",0.3258,0.5331,0.3776,0.3467,0.2493,0.783,0.5152,0.286,0.066,0.88
+SmartVSM Lnc.ltc,final/all-topics,"stem, stop, title x2",0.3187,0.5316,0.3722,0.3316,0.2409,0.7575,0.536,0.286,0.21,0.93
+"SmartVSM + Rocchio(a=1.0,b=0.75,g=0.0,k=8,m=30)",final/held-out,"stem, stop, title x2",0.3514,0.5628,0.4071,0.3653,0.264,0.821,0.5658,0.286,0.184,2.46
+"SmartVSM + Rocchio(a=1.0,b=0.75,g=0.0,k=8,m=30)",final/all-topics,"stem, stop, title x2",0.3431,0.5537,0.3946,0.3449,0.2578,0.7948,0.5583,0.286,0.524,2.33

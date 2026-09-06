@@ -1,0 +1,28 @@
+{
+  "selected_system": "SmartVSM + Rocchio(a=1.0,b=0.75,g=0.0,k=8,m=30)",
+  "preprocessing": {
+    "stem": true,
+    "stopwords": true,
+    "title_weight": 2,
+    "include_author": false,
+    "include_bib": false,
+    "dedupe_title": false
+  },
+  "smart_scheme": {
+    "doc": "Lnc",
+    "query": "ltc",
+    "pivot_slope": 0.2
+  },
+  "rocchio": {
+    "alpha": 1.0,
+    "beta": 0.75,
+    "gamma": 0.0,
+    "fb_docs": 8,
+    "fb_terms": 30,
+    "neg_docs": 0
+  },
+  "stemmer": "porter (Terrier)",
+  "top_k": 1000,
+  "index_time_terrier_s": 0.566,
+  "index_time_vsm_s": 0.286
+}

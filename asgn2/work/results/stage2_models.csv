@@ -1,0 +1,13 @@
+system,family,configuration,map,ndcg,ndcg_cut_10,P_5,P_10,recall_100,recip_rank,index_time_s,search_time_s,ms_per_query
+SmartVSM Lnc.ltc,smart-vsm,"stem, stop, title x2; Lnc.ltc",0.3151,0.5308,0.3695,0.324,0.2367,0.7448,0.5465,0.285,0.15,1.0
+SmartVSM lnc.ltc,smart-vsm,"stem, stop, title x2; lnc.ltc",0.3151,0.5308,0.3695,0.324,0.2367,0.7448,0.5465,0.293,0.155,1.03
+SmartVSM lnu.ltu,smart-vsm,"stem, stop, title x2; lnu.ltu",0.3143,0.5341,0.3855,0.316,0.244,0.7386,0.57,0.267,0.139,0.93
+Terrier TF_IDF,terrier,"stem, stop, title x2",0.3087,0.5289,0.3698,0.316,0.2327,0.7371,0.5449,0.566,1.209,8.06
+SmartVSM anc.atc,smart-vsm,"stem, stop, title x2; anc.atc",0.2963,0.5186,0.3563,0.3067,0.2233,0.7426,0.5371,0.29,0.142,0.95
+SmartVSM anc.ltc,smart-vsm,"stem, stop, title x2; anc.ltc",0.2953,0.5182,0.3561,0.3067,0.2233,0.7426,0.5362,0.317,0.138,0.92
+SmartVSM ltc.ltn,smart-vsm,"stem, stop, title x2; ltc.ltn",0.2935,0.5146,0.3469,0.3,0.2213,0.731,0.5217,0.264,0.15,1.0
+SmartVSM ltc.ltc,smart-vsm,"stem, stop, title x2; ltc.ltc",0.2935,0.5146,0.3469,0.3,0.2213,0.731,0.5217,0.318,0.145,0.96
+Terrier LemurTF_IDF,terrier,"stem, stop, title x2",0.2896,0.5112,0.351,0.2947,0.22,0.718,0.5092,0.566,1.263,8.42
+SmartVSM bnc.ltc,smart-vsm,"stem, stop, title x2; bnc.ltc",0.2515,0.483,0.3119,0.2613,0.1947,0.7097,0.4875,0.279,0.145,0.97
+Terrier Tf,terrier,"stem, stop, title x2",0.1944,0.4254,0.2367,0.2093,0.1587,0.652,0.4277,0.566,1.279,8.52
+Terrier CoordinateMatch,terrier,"stem, stop, title x2",0.1895,0.4224,0.2375,0.2027,0.1553,0.6242,0.4244,0.566,1.219,8.13

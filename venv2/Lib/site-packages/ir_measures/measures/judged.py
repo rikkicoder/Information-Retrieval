@@ -1,0 +1,19 @@
+from ir_measures import measures
+
+
+class _Judged(measures.Measure):
+    """
+    Percentage of results in the top k (cutoff) results that have relevance judgments. Equivalent to P@k with
+    a rel lower than any judgment.
+    """
+    __name__ = 'Judged'
+    NAME = __name__
+    PRETTY_NAME = 'Judgment Rate at k'
+    SHORT_DESC = 'The percentage of results in the top k that have a relevance judgment.'
+    SUPPORTED_PARAMS = {
+        'cutoff': measures.ParamInfo(dtype=int, required=False, desc='ranking cutoff threshold'),
+    }
+
+
+Judged = _Judged()
+measures.register(Judged)

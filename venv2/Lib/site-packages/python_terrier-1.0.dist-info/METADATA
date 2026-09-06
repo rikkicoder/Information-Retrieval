@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: python-terrier
+Version: 1.0
+Summary: PyTerrier
+Author-email: Craig Macdonald <craig.macdonald@glasgow.ac.uk>
+Maintainer-email: Craig Macdonald <craig.macdonald@glasgow.ac.uk>
+Project-URL: Repository, https://github.com/terrier-org/pyterrier
+Project-URL: Bug Tracker, https://github.com/terrier-org/pyterrier/issues
+Project-URL: Changelog, https://github.com/terrier-org/pyterrier/releases
+Project-URL: CI, https://github.com/terrier-org/pyterrier/actions
+Project-URL: Documentation, https://pyterrier.readthedocs.io/
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Indexing
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: pyterrier[all]>=1.0
+
+# python-terrier
+This repo holds the source code for the PyPI python-terrier project.
